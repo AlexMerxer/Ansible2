@@ -10,16 +10,11 @@
     - name: print values
       ansible.builtin.debug:
         var: all_package
-    - name: install apache and php package
-      ansible.builtin.apt:
-        name: "{{ all_package }}" 
-        update_cache: yes
-        state: present
-      when: ansible_facts["os_family"] == "Debian"
     - name: install apache
-      ansible.builtin.dnf:
-        name: "{{ all_package }}"
+      ansible.builtin.package:
+        name: "{{ item }}"
         state: present
+      loop: "{{ all_package }}"
       when: ansible_facts["os_family"] == "RedHat"
     - name: create info.php
       ansible.builtin.copy:
