@@ -5,7 +5,7 @@
   tasks:
     - name: for unsupported OS
       ansible.builtin.fail:
-        msg: "This playbook works on only debian and redhar based Machines"
+        msg: "This playbook works on only Debian and RedHat based Machines"
       when: ansible_facts["os_family"] != "Debian" and ansible_facts["os_family"] != "Redhat"
     - name: install apache and php package
       ansible.builtin.apt:
