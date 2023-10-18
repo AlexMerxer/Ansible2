@@ -1,4 +1,4 @@
-all_packages: 
+all_package: 
   - httpd 
   - php 
   - php-cli 
