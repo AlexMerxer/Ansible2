@@ -1,4 +1,4 @@
-all_package:
+all_packages:
   - apache2
   - php
   - libapache2-mod-php  
