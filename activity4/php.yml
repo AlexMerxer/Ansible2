@@ -15,7 +15,6 @@
         name: "{{ item }}"
         state: present
       loop: "{{ all_package }}"
-      when: ansible_facts["os_family"] == "RedHat"
     - name: create info.php
       ansible.builtin.copy:
         content: '<?php phpinfo(); ?>'
