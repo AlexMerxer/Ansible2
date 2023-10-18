@@ -3,4 +3,4 @@
 
 [webservers]
 172.31.47.231 
-172.31.31.173 
+172.31.31.173 package_name=httpd all_package='["httpd", "php", "php-cli", "php-common","php-gd", "php-mysqlnd", "php-pdo"]'
