@@ -1,7 +1,8 @@
 ---
-- name: Activity5 install Tomcat
+- name: Activity5 install Tomcat 10
   hosts: appservers
   become: yes
+  gather_facts: true
   vars:
     username: Tomcat
     group_name: Tomcat
@@ -10,7 +11,7 @@
   tasks:
     - name: install jdk
       ansible.builtin.apt:
-        name: "openjdk-{{  java_version  }}-jdk"
+        name: "openjdk-{{ java_version }}-jdk"
         update_cache: yes
         state: present
     - name: Ensure group "somegroup" exists
