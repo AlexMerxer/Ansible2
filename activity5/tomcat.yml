@@ -3,7 +3,6 @@
   hosts: appservers
   become: yes 
   vars:
-    java_version: "11"
     username: Tomcat
     group_name: Tomcat
     home_directory: /opt/Tomcat
