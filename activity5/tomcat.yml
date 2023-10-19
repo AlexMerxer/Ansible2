@@ -1,9 +1,9 @@
 ---
 - name: Activity5 install Tomcat 10
   hosts: appservers
-  become: yes
-  gather_facts: true
+  become: yes 
   vars:
+    java_version: "11"
     username: Tomcat
     group_name: Tomcat
     home_directory: /opt/Tomcat
