@@ -2,8 +2,6 @@
 - name: activity 4 - install php
   become: yes
   hosts: webservers
-  vars:
-    
   tasks:
     - name: print varaible
       ansible.builtin.debug:
