@@ -23,4 +23,4 @@
         group: "{{ group_name }}"
         home: "{{ home_directory }}"
         create_home: true
-        shell: "{{ shell }}"
+        shell: "{{ shelltype }}"
