@@ -1,1 +1,26 @@
 ---
+- name: Activity5 install Tomcat
+  hosts: appservers
+  become: yes
+  vars:
+    username: Tomcat
+    group_name: Tomcat
+    home_directory: /opt/Tomcat
+    shelltype: /bin/false
+  tasks:
+    - name: install jdk
+      ansible.builtin.apt:
+        name: "openjdk-{{ java_version }}-jdk"
+        update_cache: yes
+        state: present
+    - name: Ensure group "somegroup" exists
+      ansible.builtin.group:
+        name: {{ group_name }}
+        state: present
+    - name: create Tomcat user
+      ansible.builtin.user:
+        name: {{ username }}
+        group: {{ group_name }}
+        home: {{ home_directory }}
+        create_home: true
+        shell: {{ shell }}
