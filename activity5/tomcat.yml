@@ -1,12 +1,12 @@
 ---
-- name: install tomcat 10
-  become: yes
+- name: Activity5 install Tomcat
   hosts: appservers
+  become: yes
   vars:
-    username: tomcat
-    groupname: tomcat
-    homedir: /opt/tomcat
-    shell: /bin/false
+    username: Tomcat
+    group_name: Tomcat
+    home_directory: /opt/Tomcat
+    shelltype: /bin/false
   tasks:
     - name: install jdk
       ansible.builtin.apt:
@@ -15,12 +15,12 @@
         state: present
     - name: Ensure group "somegroup" exists
       ansible.builtin.group:
-        name: "{{ groupname }}"
+        name: "{{ group_name }}"
         state: present
-    - name: create tomcat user
+    - name: create Tomcat user
       ansible.builtin.user:
-        name:  "{{ username }}"
-        group: "{{ groupname }}"
-        home: "{{ homedir }}"
+        name: "{{ username }}"
+        group: "{{ group_name }}"
+        home: "{{ home_directory }}"
         create_home: true
-        shell: "{{ shell }}"
+        shell: "{{ shelltype }}"
