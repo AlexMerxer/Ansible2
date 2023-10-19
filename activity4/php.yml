@@ -1,5 +1,5 @@
 ---
-- name: activity 2 - install php
+- name: activity 4 - install php
   become: yes
   hosts: webservers
   vars:
