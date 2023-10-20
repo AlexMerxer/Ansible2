@@ -8,6 +8,8 @@
     home_directory: /opt/tomcat
     shelltype: /bin/false
     java_version: "11"
+    tomcat_major_version: 10
+    tomcat_specific_version: 10.1.14
   tasks:
     - name: install jdk
       ansible.builtin.apt:
@@ -25,3 +27,7 @@
         home: "{{ home_directory }}"
         create_home: true
         shell: "{{ shelltype }}"
+    - name: donwload tomcat
+      ansible.builtin.get_url:
+        url: "https://dlcdn.apache.org/tomcat/tomcat-{{ tomcat_major_version }}/v{{ tomcat_specific_version }}/bin/apache-tomcat-{{ tomcat_specific_version }}.tar.gz"
+        dest: "/tmp/apache-tomcat-{{ tomcat_specific_version }}.tar.gz"
