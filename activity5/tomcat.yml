@@ -11,6 +11,10 @@
     tomcat_major_version: 10
     tomcat_specific_version: 10.1.14
   tasks:
+    - name: Fail on other OS except ubuntu
+      ansible_builtin.debug:
+        msg: "Works only on Debian based OS"
+      when: ansible_facts["os_family"] != "Debian"
     - name: install jdk
       ansible.builtin.apt:
         name: "openjdk-{{  java_version  }}-jdk"
