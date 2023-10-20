@@ -12,7 +12,7 @@
     tomcat_specific_version: 10.1.14
   tasks:
     - name: Fail on other OS except ubuntu
-      ansible_builtin.debug:
+      ansible_builtin.fail:
         msg: "Works only on Debian based OS"
       when: ansible_facts["os_family"] != "Debian"
     - name: install jdk
